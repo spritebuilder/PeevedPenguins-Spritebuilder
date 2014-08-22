@@ -1246,6 +1246,13 @@ static inline float readFloat(CCBReader *self)
     Class class = NSClassFromString(className);
     if (!class)
     {
+        // Try Swift
+        NSString *appName = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleName"];
+        NSString *classStringName = [NSString stringWithFormat:@"_TtC%d%@%d%@", appName.length, appName, className.length, className];
+        class = NSClassFromString(classStringName);
+    }
+    if (!class)
+    {
 #if DEBUG
         NSLog(@"*** [CLASS] ERROR HINT: Did you set a custom class for a CCNode? Please check if the specified class name is spelled correctly and available in your project.");
 #endif
