@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		6212FF2C1953A8F400B92936 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6212FF2B1953A8F400B92936 /* GLKit.framework */; };
-		6230E9D3188F18D5007CD923 /* WaitingPenguin.m in Sources */ = {isa = PBXBuildFile; fileRef = 6230E9D2188F18D5007CD923 /* WaitingPenguin.m */; };
 		62468ABE192D4ED700E41128 /* libcocos2d.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62468ABB192D4DA800E41128 /* libcocos2d.a */; };
-		625213B318883868009867C0 /* Penguin.m in Sources */ = {isa = PBXBuildFile; fileRef = 625213B218883868009867C0 /* Penguin.m */; };
-		625213B8188839F9009867C0 /* Seal.m in Sources */ = {isa = PBXBuildFile; fileRef = 625213B7188839F9009867C0 /* Seal.m */; };
-		62B943F81888CA1900CACE27 /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B943F71888CA1900CACE27 /* Gameplay.m */; };
+		7A6F90B219A67CD000CA91DC /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6F90B119A67CD000CA91DC /* MainScene.swift */; };
+		7A6F90B419A67F4600CA91DC /* Penguin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6F90B319A67F4600CA91DC /* Penguin.swift */; };
+		7A6F90B619A67FA100CA91DC /* Seal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6F90B519A67FA100CA91DC /* Seal.swift */; };
+		7A6F90B819A67FFE00CA91DC /* WaitingPenguin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6F90B719A67FFE00CA91DC /* WaitingPenguin.swift */; };
+		7A6F90BA19A6822900CA91DC /* Gameplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6F90B919A6822900CA91DC /* Gameplay.swift */; };
+		7AA6E60919A673D1005E5386 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA6E60819A673D1005E5386 /* AppDelegate.swift */; };
 		B737893B180761570076A88C /* Published-iOS in Resources */ = {isa = PBXBuildFile; fileRef = B737893A180761570076A88C /* Published-iOS */; };
-		B737893F1807617C0076A88C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
 		B7378975180762440076A88C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B737896B180762440076A88C /* Default-568h@2x.png */; };
 		B7378976180762440076A88C /* Default-Landscape~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = B737896C180762440076A88C /* Default-Landscape~ipad.png */; };
 		B7378977180762440076A88C /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B737896D180762440076A88C /* Default.png */; };
@@ -25,8 +26,6 @@
 		B737897C180762440076A88C /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B7378972180762440076A88C /* Icon-Small@2x.png */; };
 		B737897D180762440076A88C /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B7378973180762440076A88C /* Icon.png */; };
 		B737897E180762440076A88C /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B7378974180762440076A88C /* Icon@2x.png */; };
-		B73789871807631A0076A88C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B73789851807631A0076A88C /* main.m */; };
-		B7378994180767190076A88C /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* MainScene.m */; };
 		B77F1B3217B978D7009739AE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3117B978D7009739AE /* QuartzCore.framework */; };
 		B77F1B3417B978D7009739AE /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3317B978D7009739AE /* OpenGLES.framework */; };
 		B77F1B3617B978D7009739AE /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B77F1B3517B978D7009739AE /* OpenAL.framework */; };
@@ -57,18 +56,15 @@
 
 /* Begin PBXFileReference section */
 		6212FF2B1953A8F400B92936 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
-		6230E9D1188F18D5007CD923 /* WaitingPenguin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaitingPenguin.h; path = Source/WaitingPenguin.h; sourceTree = "<group>"; };
-		6230E9D2188F18D5007CD923 /* WaitingPenguin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaitingPenguin.m; path = Source/WaitingPenguin.m; sourceTree = "<group>"; };
 		62468AB4192D4DA700E41128 /* cocos2d-ios.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "cocos2d-ios.xcodeproj"; path = "Source/libs/cocos2d-iphone/cocos2d-ios.xcodeproj"; sourceTree = SOURCE_ROOT; };
-		625213B118883868009867C0 /* Penguin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Penguin.h; path = Source/Penguin.h; sourceTree = "<group>"; };
-		625213B218883868009867C0 /* Penguin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Penguin.m; path = Source/Penguin.m; sourceTree = "<group>"; };
-		625213B6188839F9009867C0 /* Seal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Seal.h; path = Source/Seal.h; sourceTree = "<group>"; };
-		625213B7188839F9009867C0 /* Seal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Seal.m; path = Source/Seal.m; sourceTree = "<group>"; };
-		62B943F61888CA1900CACE27 /* Gameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gameplay.h; path = Source/Gameplay.h; sourceTree = "<group>"; };
-		62B943F71888CA1900CACE27 /* Gameplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gameplay.m; path = Source/Gameplay.m; sourceTree = "<group>"; };
+		7A6F90B119A67CD000CA91DC /* MainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
+		7A6F90B319A67F4600CA91DC /* Penguin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Penguin.swift; sourceTree = "<group>"; };
+		7A6F90B519A67FA100CA91DC /* Seal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Seal.swift; sourceTree = "<group>"; };
+		7A6F90B719A67FFE00CA91DC /* WaitingPenguin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitingPenguin.swift; sourceTree = "<group>"; };
+		7A6F90B919A6822900CA91DC /* Gameplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gameplay.swift; sourceTree = "<group>"; };
+		7AA6E60719A673D1005E5386 /* PeevedPenguins-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PeevedPenguins-Bridging-Header.h"; sourceTree = "<group>"; };
+		7AA6E60819A673D1005E5386 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B737893A180761570076A88C /* Published-iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Published-iOS"; path = "Source/Resources/Published-iOS"; sourceTree = SOURCE_ROOT; };
-		B737893D1807617C0076A88C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Source/AppDelegate.h; sourceTree = "<group>"; };
-		B737893E1807617C0076A88C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Source/AppDelegate.m; sourceTree = "<group>"; };
 		B737896B180762440076A88C /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Source/Resources/Default-568h@2x.png"; sourceTree = SOURCE_ROOT; };
 		B737896C180762440076A88C /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "Source/Resources/Default-Landscape~ipad.png"; sourceTree = SOURCE_ROOT; };
 		B737896D180762440076A88C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Source/Resources/Default.png; sourceTree = SOURCE_ROOT; };
@@ -79,10 +75,7 @@
 		B7378972180762440076A88C /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Source/Resources/Icon-Small@2x.png"; sourceTree = SOURCE_ROOT; };
 		B7378973180762440076A88C /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = Source/Resources/Icon.png; sourceTree = SOURCE_ROOT; };
 		B7378974180762440076A88C /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "Source/Resources/Icon@2x.png"; sourceTree = SOURCE_ROOT; };
-		B73789851807631A0076A88C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/main.m; sourceTree = SOURCE_ROOT; };
 		B73789861807631A0076A88C /* Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Prefix.pch; path = Source/Prefix.pch; sourceTree = SOURCE_ROOT; };
-		B7378992180767190076A88C /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainScene.h; path = Source/MainScene.h; sourceTree = "<group>"; };
-		B7378993180767190076A88C /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainScene.m; path = Source/MainScene.m; sourceTree = "<group>"; };
 		B77F1B2E17B978D7009739AE /* PeevedPenguins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PeevedPenguins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B77F1B3117B978D7009739AE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B77F1B3317B978D7009739AE /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -129,18 +122,13 @@
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				B737893D1807617C0076A88C /* AppDelegate.h */,
-				B737893E1807617C0076A88C /* AppDelegate.m */,
-				B7378992180767190076A88C /* MainScene.h */,
-				B7378993180767190076A88C /* MainScene.m */,
-				625213B118883868009867C0 /* Penguin.h */,
-				625213B218883868009867C0 /* Penguin.m */,
-				625213B6188839F9009867C0 /* Seal.h */,
-				625213B7188839F9009867C0 /* Seal.m */,
-				62B943F61888CA1900CACE27 /* Gameplay.h */,
-				62B943F71888CA1900CACE27 /* Gameplay.m */,
-				6230E9D1188F18D5007CD923 /* WaitingPenguin.h */,
-				6230E9D2188F18D5007CD923 /* WaitingPenguin.m */,
+				7A6F90B119A67CD000CA91DC /* MainScene.swift */,
+				7A6F90B319A67F4600CA91DC /* Penguin.swift */,
+				7A6F90B519A67FA100CA91DC /* Seal.swift */,
+				7A6F90B919A6822900CA91DC /* Gameplay.swift */,
+				7A6F90B719A67FFE00CA91DC /* WaitingPenguin.swift */,
+				7AA6E60819A673D1005E5386 /* AppDelegate.swift */,
+				7AA6E60719A673D1005E5386 /* PeevedPenguins-Bridging-Header.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -222,7 +210,6 @@
 		B77F1CCF17B978D8009739AE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B73789851807631A0076A88C /* main.m */,
 				B73789861807631A0076A88C /* Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -328,13 +315,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				625213B318883868009867C0 /* Penguin.m in Sources */,
-				62B943F81888CA1900CACE27 /* Gameplay.m in Sources */,
-				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
-				B7378994180767190076A88C /* MainScene.m in Sources */,
-				625213B8188839F9009867C0 /* Seal.m in Sources */,
-				B73789871807631A0076A88C /* main.m in Sources */,
-				6230E9D3188F18D5007CD923 /* WaitingPenguin.m in Sources */,
+				7A6F90B419A67F4600CA91DC /* Penguin.swift in Sources */,
+				7A6F90BA19A6822900CA91DC /* Gameplay.swift in Sources */,
+				7AA6E60919A673D1005E5386 /* AppDelegate.swift in Sources */,
+				7A6F90B819A67FFE00CA91DC /* WaitingPenguin.swift in Sources */,
+				7A6F90B219A67CD000CA91DC /* MainScene.swift in Sources */,
+				7A6F90B619A67FA100CA91DC /* Seal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +398,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -428,7 +415,8 @@
 					"\"Source/libs/cocos2d-iphone/cocos2d\"/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lz",
@@ -437,6 +425,8 @@
 				);
 				PRODUCT_NAME = PeevedPenguins;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "PeevedPenguins-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -445,6 +435,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -460,7 +451,8 @@
 					"\"Source/libs/cocos2d-iphone/cocos2d\"/**",
 				);
 				INFOPLIST_FILE = Source/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-lsqlite3",
@@ -468,6 +460,7 @@
 				);
 				PRODUCT_NAME = PeevedPenguins;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "PeevedPenguins-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
