@@ -137,7 +137,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
     self.releaseCatapult()
   }
 
-  func ccPhysicsCollisionPostSolve(#pair: CCPhysicsCollisionPair, seal nodeA: CCNode, wildcard nodeB: CCNode) {
+  func ccPhysicsCollisionPostSolve(pair: CCPhysicsCollisionPair, seal nodeA: CCNode, wildcard nodeB: CCNode) {
     let energy = pair.totalKineticEnergy
 
     // if energy is large enough, remove the seal
