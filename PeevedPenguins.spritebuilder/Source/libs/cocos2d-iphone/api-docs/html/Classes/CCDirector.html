@@ -11,8 +11,8 @@
 	<body>
 		<header id="top_header">
 			<div id="library" class="hideInXcode">
-				<h1><a id="libraryTitle" href="../index.html">Cocos2D 3.0 </a></h1>
-				<a id="developerHome" href="../index.html">Cocos2D</a>
+				<h1><a id="libraryTitle" href="../index.html">Cocos2D </a></h1>
+				<a id="developerHome" href="../index.html">3.2.0</a>
 			</div>
 			
 			<div id="title" role="banner">
@@ -53,11 +53,15 @@
 	
 	<option value="//api/name/displayStats">&nbsp;&nbsp;&nbsp;&nbsp;displayStats</option>
 	
+	<option value="//api/name/globalShaderUniforms">&nbsp;&nbsp;&nbsp;&nbsp;globalShaderUniforms</option>
+	
 	<option value="//api/name/nextDeltaTimeZero">&nbsp;&nbsp;&nbsp;&nbsp;nextDeltaTimeZero</option>
 	
 	<option value="//api/name/paused">&nbsp;&nbsp;&nbsp;&nbsp;paused</option>
 	
 	<option value="//api/name/projection">&nbsp;&nbsp;&nbsp;&nbsp;projection</option>
+	
+	<option value="//api/name/projectionMatrix">&nbsp;&nbsp;&nbsp;&nbsp;projectionMatrix</option>
 	
 	<option value="//api/name/responderManager">&nbsp;&nbsp;&nbsp;&nbsp;responderManager</option>
 	
@@ -95,6 +99,8 @@
 	
 	<option value="//api/name/popToRootScene">&nbsp;&nbsp;&nbsp;&nbsp;- popToRootScene</option>
 	
+	<option value="//api/name/popToRootSceneWithTransition:">&nbsp;&nbsp;&nbsp;&nbsp;- popToRootSceneWithTransition:</option>
+	
 	<option value="//api/name/presentScene:">&nbsp;&nbsp;&nbsp;&nbsp;- presentScene:</option>
 	
 	<option value="//api/name/presentScene:withTransition:">&nbsp;&nbsp;&nbsp;&nbsp;- presentScene:withTransition:</option>
@@ -114,12 +120,6 @@
 	<option value="//api/name/resume">&nbsp;&nbsp;&nbsp;&nbsp;- resume</option>
 	
 	<option value="//api/name/runWithScene:">&nbsp;&nbsp;&nbsp;&nbsp;- runWithScene:</option>
-	
-	<option value="//api/name/setAlphaBlending:">&nbsp;&nbsp;&nbsp;&nbsp;- setAlphaBlending:</option>
-	
-	<option value="//api/name/setDepthTest:">&nbsp;&nbsp;&nbsp;&nbsp;- setDepthTest:</option>
-	
-	<option value="//api/name/setGLDefaultValues">&nbsp;&nbsp;&nbsp;&nbsp;- setGLDefaultValues</option>
 	
 	<option value="//api/name/startAnimation">&nbsp;&nbsp;&nbsp;&nbsp;- startAnimation</option>
 	
@@ -169,11 +169,15 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/displayStats">displayStats</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/globalShaderUniforms">globalShaderUniforms</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/nextDeltaTimeZero">nextDeltaTimeZero</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/paused">paused</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/projection">projection</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/projectionMatrix">projectionMatrix</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/responderManager">responderManager</a></span></li>
 	
@@ -213,6 +217,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/popToRootScene">popToRootScene</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/popToRootSceneWithTransition:">popToRootSceneWithTransition:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/presentScene:">presentScene:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/presentScene:withTransition:">presentScene:withTransition:</a></span></li>
@@ -232,12 +238,6 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resume">resume</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/runWithScene:">runWithScene:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setAlphaBlending:">setAlphaBlending:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setDepthTest:">setDepthTest:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/setGLDefaultValues">setGLDefaultValues</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/startAnimation">startAnimation</a></span></li>
 	
@@ -410,6 +410,18 @@ and when to execute the Scenes.</p>
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/projectionMatrix">&nbsp;&nbsp;projectionMatrix</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/globalShaderUniforms">&nbsp;&nbsp;globalShaderUniforms</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/sharedDirector">+&nbsp;sharedDirector</a></code>
 	</span>
 	
@@ -482,6 +494,12 @@ and when to execute the Scenes.</p>
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/popToRootSceneWithTransition:">&ndash;&nbsp;popToRootSceneWithTransition:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/replaceScene:">&ndash;&nbsp;replaceScene:</a></code>
 	</span>
 	
@@ -543,24 +561,6 @@ and when to execute the Scenes.</p>
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/purgeCachedData">&ndash;&nbsp;purgeCachedData</a></code>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/setGLDefaultValues">&ndash;&nbsp;setGLDefaultValues</a></code>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/setAlphaBlending:">&ndash;&nbsp;setAlphaBlending:</a></code>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/setDepthTest:">&ndash;&nbsp;setDepthTest:</a></code>
 	</span>
 	
 	
@@ -733,7 +733,7 @@ and when to execute the Scenes.</p>
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, unsafe_unretained) id&lt;CCDirectorDelegate&gt; delegate</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, weak) id&lt;CCDirectorDelegate&gt; delegate</code></div>
 
     
 	
@@ -807,6 +807,42 @@ Defaults to the <a href="#//api/name/view">view</a> size.</p>
     
 
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, assign) BOOL displayStats</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCDirector.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/globalShaderUniforms" title="globalShaderUniforms"></a>
+	<h3 class="subsubtitle method-title">globalShaderUniforms</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The current global shader values values.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSMutableDictionary *globalShaderUniforms</code></div>
 
     
 	
@@ -939,6 +975,42 @@ Defaults to the <a href="#//api/name/view">view</a> size.</p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/projectionMatrix" title="projectionMatrix"></a>
+	<h3 class="subsubtitle method-title">projectionMatrix</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Projection matrix used for rendering.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) GLKMatrix4 projectionMatrix</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCDirector.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/responderManager" title="responderManager"></a>
 	<h3 class="subsubtitle method-title">responderManager</h3>
 	
@@ -1024,7 +1096,7 @@ Typically this is the main thread.</p>
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (unsafe_unretained, readonly, nonatomic) NSThread *runningThread</code></div>
+	<div class="method-subsection method-declaration"><code>@property (weak, readonly, nonatomic) NSThread *runningThread</code></div>
 
     
 	
@@ -1487,6 +1559,48 @@ Internally it will call <code>popToSceneStackLevel:1</code></p>
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/popToRootSceneWithTransition:" title="popToRootSceneWithTransition:"></a>
+	<h3 class="subsubtitle method-title">popToRootSceneWithTransition:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Pops out all scenes from the queue until the root scene in the queue, using a transition</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)popToRootSceneWithTransition:(CCTransition *)<em>transition</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This scene will replace the running one.
+Internally it will call <a href="#//api/name/popToRootScene"><code>popToRootScene</code></a></p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCDirector.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/presentScene:" title="presentScene:"></a>
 	<h3 class="subsubtitle method-title">presentScene:</h3>
 	
@@ -1855,7 +1969,7 @@ Performs a transition between the outgoing and the incoming scene</p>
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)reshapeProjection:(CGSize)<em>newWindowSize</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (void)reshapeProjection:(CGSize)<em>newViewSize</em></code></div>
 
     
 	
@@ -1863,7 +1977,7 @@ Performs a transition between the outgoing and the incoming scene</p>
 		<h4 class="method-subtitle parameter-title">Parameters</h4>
 		
 		<dl class="argument-def parameter-def">
-			<dt><em>newWindowSize</em></dt>
+			<dt><em>newViewSize</em></dt>
 			<dd><p>New <a href="#//api/name/projection">projection</a> size.</p></dd>
 		</dl>
 		
@@ -1966,134 +2080,6 @@ Don&rsquo;t call it if there is already a running scene.</p>
 
 <p>It will call <a href="#//api/name/pushScene:">pushScene:</a> and then it will call <a href="#//api/name/startAnimation">startAnimation</a></p>
 	</div>
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">CCDirector.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/setAlphaBlending:" title="setAlphaBlending:"></a>
-	<h3 class="subsubtitle method-title">setAlphaBlending:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Enables/disables OpenGL alpha blending.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)setAlphaBlending:(BOOL)<em>on</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>on</em></dt>
-			<dd><p>Set to YES to enable alpha blending.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">CCDirector.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/setDepthTest:" title="setDepthTest:"></a>
-	<h3 class="subsubtitle method-title">setDepthTest:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Enables/disables OpenGL depth test.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)setDepthTest:(BOOL)<em>on</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>on</em></dt>
-			<dd><p>Set to YES to enable depth tests.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">CCDirector.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/setGLDefaultValues" title="setGLDefaultValues"></a>
-	<h3 class="subsubtitle method-title">setGLDefaultValues</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>sets the OpenGL default values</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (void)setGLDefaultValues</code></div>
-
-    
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -2312,7 +2298,7 @@ On Mac winSize and winSizeInPixels return the same value.</p>
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Cocos2D. All rights reserved. (Last updated: 2014-01-13)</span><br />
+						<p><span class="copyright">&copy; 2014 3.2.0. All rights reserved. (Last updated: 2014-08-12)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						

@@ -11,8 +11,8 @@
 	<body>
 		<header id="top_header">
 			<div id="library" class="hideInXcode">
-				<h1><a id="libraryTitle" href="../index.html">Cocos2D 3.0 </a></h1>
-				<a id="developerHome" href="../index.html">Cocos2D</a>
+				<h1><a id="libraryTitle" href="../index.html">Cocos2D </a></h1>
+				<a id="developerHome" href="../index.html">3.2.0</a>
 			</div>
 			
 			<div id="title" role="banner">
@@ -43,6 +43,8 @@
 	
 	<option value="//api/name/anchorPointInPoints">&nbsp;&nbsp;&nbsp;&nbsp;anchorPointInPoints</option>
 	
+	<option value="//api/name/animationManager">&nbsp;&nbsp;&nbsp;&nbsp;animationManager</option>
+	
 	<option value="//api/name/cascadeColorEnabled">&nbsp;&nbsp;&nbsp;&nbsp;cascadeColorEnabled</option>
 	
 	<option value="//api/name/cascadeOpacityEnabled">&nbsp;&nbsp;&nbsp;&nbsp;cascadeOpacityEnabled</option>
@@ -62,8 +64,6 @@
 	<option value="//api/name/displayedColor">&nbsp;&nbsp;&nbsp;&nbsp;displayedColor</option>
 	
 	<option value="//api/name/displayedOpacity">&nbsp;&nbsp;&nbsp;&nbsp;displayedOpacity</option>
-	
-	<option value="//api/name/hitAreaExpansion">&nbsp;&nbsp;&nbsp;&nbsp;hitAreaExpansion</option>
 	
 	<option value="//api/name/name">&nbsp;&nbsp;&nbsp;&nbsp;name</option>
 	
@@ -145,13 +145,11 @@
 	
 	<option value="//api/name/doesOpacityModifyRGB">&nbsp;&nbsp;&nbsp;&nbsp;- doesOpacityModifyRGB</option>
 	
-	<option value="//api/name/draw">&nbsp;&nbsp;&nbsp;&nbsp;- draw</option>
+	<option value="//api/name/draw:transform:">&nbsp;&nbsp;&nbsp;&nbsp;- draw:transform:</option>
 	
 	<option value="//api/name/getActionByTag:">&nbsp;&nbsp;&nbsp;&nbsp;- getActionByTag:</option>
 	
 	<option value="//api/name/getChildByName:recursively:">&nbsp;&nbsp;&nbsp;&nbsp;- getChildByName:recursively:</option>
-	
-	<option value="//api/name/hitTestWithWorldPos:">&nbsp;&nbsp;&nbsp;&nbsp;- hitTestWithWorldPos:</option>
 	
 	<option value="//api/name/init">&nbsp;&nbsp;&nbsp;&nbsp;- init</option>
 	
@@ -207,7 +205,7 @@
 	
 	<option value="//api/name/stopAllActions">&nbsp;&nbsp;&nbsp;&nbsp;- stopAllActions</option>
 	
-	<option value="//api/name/transform">&nbsp;&nbsp;&nbsp;&nbsp;- transform</option>
+	<option value="//api/name/transform:">&nbsp;&nbsp;&nbsp;&nbsp;- transform:</option>
 	
 	<option value="//api/name/unschedule:">&nbsp;&nbsp;&nbsp;&nbsp;- unschedule:</option>
 	
@@ -217,7 +215,11 @@
 	
 	<option value="//api/name/updateDisplayedOpacity:">&nbsp;&nbsp;&nbsp;&nbsp;- updateDisplayedOpacity:</option>
 	
+	<option value="//api/name/viewDidResizeTo:">&nbsp;&nbsp;&nbsp;&nbsp;- viewDidResizeTo:</option>
+	
 	<option value="//api/name/visit">&nbsp;&nbsp;&nbsp;&nbsp;- visit</option>
+	
+	<option value="//api/name/visit:parentTransform:">&nbsp;&nbsp;&nbsp;&nbsp;- visit:parentTransform:</option>
 	
 	<option value="//api/name/walkSceneGraph:">&nbsp;&nbsp;&nbsp;&nbsp;- walkSceneGraph:</option>
 	
@@ -249,8 +251,6 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Adding, Removing and Sorting Children">Adding, Removing and Sorting Children</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Hit tests">Hit tests</a></span></li>
-	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Scene Management">Scene Management</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Physics">Physics</a></span></li>
@@ -265,6 +265,8 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Debug Methods">Debug Methods</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_NoARC Methods">NoARC Methods</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_CCPhysics Methods">CCPhysics Methods</a></span></li>
 	
 </ul></li>
@@ -278,6 +280,8 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/anchorPoint">anchorPoint</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/anchorPointInPoints">anchorPointInPoints</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/animationManager">animationManager</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/cascadeColorEnabled">cascadeColorEnabled</a></span></li>
 	
@@ -298,8 +302,6 @@
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/displayedColor">displayedColor</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/displayedOpacity">displayedOpacity</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hitAreaExpansion">hitAreaExpansion</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/name">name</a></span></li>
 	
@@ -383,13 +385,11 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/doesOpacityModifyRGB">doesOpacityModifyRGB</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/draw">draw</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/draw:transform:">draw:transform:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getActionByTag:">getActionByTag:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getChildByName:recursively:">getChildByName:recursively:</a></span></li>
-	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/hitTestWithWorldPos:">hitTestWithWorldPos:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/init">init</a></span></li>
 	
@@ -445,7 +445,7 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/stopAllActions">stopAllActions</a></span></li>
 	
-	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/transform">transform</a></span></li>
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/transform:">transform:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/unschedule:">unschedule:</a></span></li>
 	
@@ -455,7 +455,11 @@
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/updateDisplayedOpacity:">updateDisplayedOpacity:</a></span></li>
 	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/viewDidResizeTo:">viewDidResizeTo:</a></span></li>
+	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/visit">visit</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/visit:parentTransform:">visit:parentTransform:</a></span></li>
 	
 	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/walkSceneGraph:">walkSceneGraph:</a></span></li>
 	
@@ -731,6 +735,12 @@
 	
 </li><li>
 	<span class="tooltip">
+		<code><a href="#//api/name/viewDidResizeTo:">&ndash;&nbsp;viewDidResizeTo:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
 		<code><a href="#//api/name/boundingBox">&ndash;&nbsp;boundingBox</a></code>
 	</span>
 	
@@ -830,26 +840,6 @@
 </li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/zOrder">&nbsp;&nbsp;zOrder</a></code>
-	</span>
-	<span class="task-item-suffix">property</span>
-	
-</li>
-						</ul>
-						
-						
-						<a title="Hit tests" name="task_Hit tests"></a>
-						<h3 class="subsubtitle task-title">Hit tests</h3>
-
-						<ul class="task-list">
-							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/hitTestWithWorldPos:">&ndash;&nbsp;hitTestWithWorldPos:</a></code>
-	</span>
-	
-	
-</li><li>
-	<span class="tooltip">
-		<code><a href="#//api/name/hitAreaExpansion">&nbsp;&nbsp;hitAreaExpansion</a></code>
 	</span>
 	<span class="task-item-suffix">property</span>
 	
@@ -999,6 +989,12 @@
 	</span>
 	
 	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/animationManager">&nbsp;&nbsp;animationManager</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
 </li>
 						</ul>
 						
@@ -1008,12 +1004,6 @@
 
 						<ul class="task-list">
 							<li>
-	<span class="tooltip">
-		<code><a href="#//api/name/transform">&ndash;&nbsp;transform</a></code>
-	</span>
-	
-	
-</li><li>
 	<span class="tooltip">
 		<code><a href="#//api/name/nodeToParentTransform">&ndash;&nbsp;nodeToParentTransform</a></code>
 	</span>
@@ -1071,7 +1061,7 @@
 						<ul class="task-list">
 							<li>
 	<span class="tooltip">
-		<code><a href="#//api/name/draw">&ndash;&nbsp;draw</a></code>
+		<code><a href="#//api/name/draw:transform:">&ndash;&nbsp;draw:transform:</a></code>
 	</span>
 	
 	
@@ -1165,6 +1155,26 @@
 						</ul>
 						
 						
+						<a title="NoARC Methods" name="task_NoARC Methods"></a>
+						<h3 class="subsubtitle task-title">NoARC Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/transform:">&ndash;&nbsp;transform:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/visit:parentTransform:">&ndash;&nbsp;visit:parentTransform:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
 						<a title="CCPhysics Methods" name="task_CCPhysics Methods"></a>
 						<h3 class="subsubtitle task-title">CCPhysics Methods</h3>
 
@@ -1241,6 +1251,42 @@ The default anchorPoint is (0,0). It starts in the bottom-left corner. <a href="
     
 
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CGPoint anchorPointInPoints</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/animationManager" title="animationManager"></a>
+	<h3 class="subsubtitle method-title">animationManager</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the CCB Animation Manager of this <a href="#//api/name/node">node</a>, or that of its <a href="#//api/name/parent">parent</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CCAnimationManager *animationManager</code></div>
 
     
 	
@@ -1496,7 +1542,7 @@ property, see <a href="#//api/name/cascadeColorEnabled">cascadeColorEnabled</a> 
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CGSize contentSizeInPoints</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, assign) CGSize contentSizeInPoints</code></div>
 
     
 	
@@ -1605,43 +1651,6 @@ property, see <a href="#//api/name/cascadeColorEnabled">cascadeColorEnabled</a> 
     
 
 	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CGFloat displayedOpacity</code></div>
-
-    
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">CCNode.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
-	<a name="//api/name/hitAreaExpansion" title="hitAreaExpansion"></a>
-	<h3 class="subsubtitle method-title">hitAreaExpansion</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Expands ( or contracts ) the hit area of the <a href="#//api/name/node">node</a>.
-The expansion is in normalized content size. Ie a hit area expansion of 2, will result in the hit area being double width, and double height.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) float hitAreaExpansion</code></div>
 
     
 	
@@ -1899,7 +1908,7 @@ Values goes from 0 to 1, where 1 means fully opaque.</p></div>
 	
     
 
-	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CGPoint positionInPoints</code></div>
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, assign) CGPoint positionInPoints</code></div>
 
     
 	
@@ -3066,8 +3075,8 @@ Treats the returned/received <a href="#//api/name/node">node</a> point as anchor
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/draw" title="draw"></a>
-	<h3 class="subsubtitle method-title">draw</h3>
+	<a name="//api/name/draw:transform:" title="draw:transform:"></a>
+	<h3 class="subsubtitle method-title">draw:transform:</h3>
 	
 	
 	
@@ -3080,7 +3089,7 @@ You shall NOT call [super draw];</p>
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)draw</code></div>
+	<div class="method-subsection method-declaration"><code>- (void)draw:(CCRenderer *)<em>renderer</em> transform:(const GLKMatrix4 *)<em>transform</em></code></div>
 
     
 	
@@ -3214,58 +3223,6 @@ Otherwise, only immediate <a href="#//api/name/children">children</a> are checke
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/hitTestWithWorldPos:" title="hitTestWithWorldPos:"></a>
-	<h3 class="subsubtitle method-title">hitTestWithWorldPos:</h3>
-	
-	
-	
-	<div class="method-subsection brief-description">
-		<p>Check if a touch is inside the <a href="#//api/name/node">node</a>.
-To allow for custom detection, override this method.</p>
-	</div>		
-	
-    
-
-	<div class="method-subsection method-declaration"><code>- (BOOL)hitTestWithWorldPos:(CGPoint)<em>pos</em></code></div>
-
-    
-	
-	<div class="method-subsection arguments-section parameters">
-		<h4 class="method-subtitle parameter-title">Parameters</h4>
-		
-		<dl class="argument-def parameter-def">
-			<dt><em>pos</em></dt>
-			<dd><p>World <a href="#//api/name/position">position</a>.</p></dd>
-		</dl>
-		
-	</div>
-	
-	
-	
-	<div class="method-subsection return">
-		<h4 class="method-subtitle parameter-title">Return Value</h4>
-		<p>Returns true, if the <a href="#//api/name/position">position</a> is inside the <a href="#//api/name/node">node</a>.</p>
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	<div class="method-subsection declared-in-section">
-		<h4 class="method-subtitle">Declared In</h4>
-		<code class="declared-in-ref">CCNode.h</code><br />
-	</div>				
-	
-	
-</div>
-						
-						<div class="section-method">
 	<a name="//api/name/init" title="init"></a>
 	<h3 class="subsubtitle method-title">init</h3>
 	
@@ -3308,7 +3265,7 @@ To allow for custom detection, override this method.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns the matrix that <a href="#//api/name/transform">transform</a> the node&rsquo;s (local) space coordinates into the parent&rsquo;s space coordinates.
+		<p>Returns the matrix that transform the node&rsquo;s (local) space coordinates into the parent&rsquo;s space coordinates.
 The matrix is in Pixels.</p>
 	</div>		
 	
@@ -3345,7 +3302,7 @@ The matrix is in Pixels.</p>
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns the world affine <a href="#//api/name/transform">transform</a> matrix. The matrix is in Pixels.</p>
+		<p>Returns the world affine transform matrix. The matrix is in Pixels.</p>
 	</div>		
 	
     
@@ -3573,7 +3530,7 @@ If the CCNode leaves the &lsquo;stage&rsquo; with a transition, this callback is
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns the matrix that <a href="#//api/name/transform">transform</a> parent&rsquo;s space coordinates to the node&rsquo;s (local) space coordinates. The matrix is in Pixels.</p>
+		<p>Returns the matrix that transform parent&rsquo;s space coordinates to the node&rsquo;s (local) space coordinates. The matrix is in Pixels.</p>
 	</div>		
 	
     
@@ -4122,7 +4079,7 @@ If the selector is already scheduled, then the interval parameter will be update
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (CCTimer *)schedule:(SEL)<em>selector</em> interval:(CCTime)<em>interval</em> repeat:(uint)<em>repeat</em> delay:(CCTime)<em>delay</em></code></div>
+	<div class="method-subsection method-declaration"><code>- (CCTimer *)schedule:(SEL)<em>selector</em> interval:(CCTime)<em>interval</em> repeat:(NSUInteger)<em>repeat</em> delay:(CCTime)<em>delay</em></code></div>
 
     
 	
@@ -4472,18 +4429,18 @@ If the selector is already scheduled, then the interval parameter will be update
 </div>
 						
 						<div class="section-method">
-	<a name="//api/name/transform" title="transform"></a>
-	<h3 class="subsubtitle method-title">transform</h3>
+	<a name="//api/name/transform:" title="transform:"></a>
+	<h3 class="subsubtitle method-title">transform:</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Performs OpenGL view-matrix transformation based on <a href="#//api/name/position">position</a>, <a href="#//api/name/scale">scale</a>, <a href="#//api/name/rotation">rotation</a> and other attributes.</p>
+		<p>Returns the 4x4 drawing transformation for this <a href="#//api/name/node">node</a>. Really only useful when overriding <a href="#//api/name/visit:parentTransform:">visit:parentTransform:</a></p>
 	</div>		
 	
     
 
-	<div class="method-subsection method-declaration"><code>- (void)transform</code></div>
+	<div class="method-subsection method-declaration"><code>- (GLKMatrix4)transform:(const GLKMatrix4 *)<em>parentTransform</em></code></div>
 
     
 	
@@ -4682,18 +4639,96 @@ If the selector is already scheduled, then the interval parameter will be update
 </div>
 						
 						<div class="section-method">
+	<a name="//api/name/viewDidResizeTo:" title="viewDidResizeTo:"></a>
+	<h3 class="subsubtitle method-title">viewDidResizeTo:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Invoked automatically when the OS view has been resized.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)viewDidResizeTo:(CGSize)<em>newViewSize</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection discussion-section">
+		<h4 class="method-subtitle">Discussion</h4>
+		<p>This implementation simply propagates the same method to the <a href="#//api/name/children">children</a>.
+Subclasses may override to actually do something when the view resizes.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
 	<a name="//api/name/visit" title="visit"></a>
 	<h3 class="subsubtitle method-title">visit</h3>
 	
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Recursive method that visit its <a href="#//api/name/children">children</a> and <a href="#//api/name/draw">draw</a> them.</p>
+		<p>Calls visit:parentTransform using the current renderer and projection.</p>
 	</div>		
 	
     
 
 	<div class="method-subsection method-declaration"><code>- (void)visit</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/visit:parentTransform:" title="visit:parentTransform:"></a>
+	<h3 class="subsubtitle method-title">visit:parentTransform:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Recursive method that <a href="#//api/name/visit">visit</a> its <a href="#//api/name/children">children</a> and draw them.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)visit:(CCRenderer *)<em>renderer</em> parentTransform:(const GLKMatrix4 *)<em>parentTransform</em></code></div>
 
     
 	
@@ -4770,7 +4805,7 @@ If the selector is already scheduled, then the interval parameter will be update
 	
 	
 	<div class="method-subsection brief-description">
-		<p>Returns the inverse world affine <a href="#//api/name/transform">transform</a> matrix. The matrix is in Pixels.</p>
+		<p>Returns the inverse world affine transform matrix. The matrix is in Pixels.</p>
 	</div>		
 	
     
@@ -4814,7 +4849,7 @@ If the selector is already scheduled, then the interval parameter will be update
 				<div id="footer">
 					<hr />
 					<div class="footer-copyright">
-						<p><span class="copyright">&copy; 2014 Cocos2D. All rights reserved. (Last updated: 2014-01-13)</span><br />
+						<p><span class="copyright">&copy; 2014 3.2.0. All rights reserved. (Last updated: 2014-08-12)</span><br />
 						
 						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 963)</a>.</span></p>
 						
