@@ -143,7 +143,7 @@
  This can reduce the cost of rendering unbatched geometry, but not all Cocos2D features are supported.
  */
 #ifndef CC_ENABLE_METAL_RENDERING
-#define CC_ENABLE_METAL_RENDERING 0
+#define CC_ENABLE_METAL_RENDERING 1
 #endif
 
 #ifndef CC_SHADER_COLOR_PRECISION
