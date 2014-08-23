@@ -149,6 +149,13 @@
         }
 
         NSMutableArray *stitchedEffects = [[NSMutableArray alloc] init];
+        if ((flattenedEffects.count == 1) || !_stitchingEnabled)
+        {
+            // If there's only one effect or if stitching is disabled, just
+            // use the original effects array.
+            [stitchedEffects addObjectsFromArray:flattenedEffects];
+        }
+        else if (flattenedEffects.count > 1)
         {
             NSMutableArray *stitchLists = [[NSMutableArray alloc] init];
             NSMutableArray *currentStitchList = [[NSMutableArray alloc] initWithArray:@[[flattenedEffects firstObject]]];
@@ -159,7 +166,7 @@
             for (CCEffect *effect in [flattenedEffects subarrayWithRange:NSMakeRange(1, flattenedEffects.count - 1)])
             {
                 CCEffect *prevEffect = [currentStitchList lastObject];
-                if (_stitchingEnabled && [prevEffect stitchSupported:CCEffectFunctionStitchAfter] && [effect stitchSupported:CCEffectFunctionStitchBefore])
+                if ([prevEffect stitchSupported:CCEffectFunctionStitchAfter] && [effect stitchSupported:CCEffectFunctionStitchBefore])
                 {
                     [currentStitchList addObject:effect];
                 }
@@ -170,30 +177,31 @@
                 }
             }
 
-            int effectIndex = 0;
             for (NSArray *stitchList in stitchLists)
             {
                 NSAssert(stitchList.count > 0, @"Encountered an empty stitch list which shouldn't happen.");
-                [stitchedEffects addObject:[self stitchEffects:stitchList startIndex:effectIndex]];
-                effectIndex += stitchList.count;
+                if (stitchList.count == 1)
+                {
+                    [stitchedEffects addObject:[stitchList firstObject]];
+                }
+                else
+                {
+                    [stitchedEffects addObject:[self stitchEffects:stitchList]];
+                }
             }
         }
         
-        // Extract passes and uniforms from the stacked and stitched effects and build a flat list of
-        // both.
+        // Extract passes from the stacked effects and build a flat list of
+        // passes.
         NSMutableArray *passes = [[NSMutableArray alloc] init];
-        NSMutableDictionary *uniforms = [[NSMutableDictionary alloc] init];
         for (CCEffect *effect in stitchedEffects)
         {
             for (CCEffectRenderPass *pass in effect.renderPasses)
             {
                 [passes addObject:pass];
             }
-            
-            [uniforms addEntriesFromDictionary:effect.shaderUniforms];
         }
         self.renderPasses = [passes copy];
-        self.shaderUniforms = uniforms;
         _passesDirty = NO;
         
         result = CCEffectPrepareSuccess;
@@ -208,7 +216,7 @@
 
 #pragma mark - Internal
 
--(CCEffect *)stitchEffects:(NSArray*)effects startIndex:(int)startIndex
+-(CCEffect *)stitchEffects:(NSArray*)effects
 {
     NSMutableArray* allFragFunctions = [[NSMutableArray alloc] init];
     NSMutableArray* allFragUniforms = [[NSMutableArray alloc] init];
@@ -216,42 +224,34 @@
     NSMutableArray* allVertexUniforms = [[NSMutableArray alloc] init];
     NSMutableArray* allVaryings = [[NSMutableArray alloc] init];
     
-    int effectIndex = startIndex;
+    int effectIndex = 0;
     for(CCEffect* effect in effects)
     {
-        // Construct the prefix to use for name mangling.
         NSString *effectPrefix = [NSString stringWithFormat:@"%@_%d_", effect.debugName, effectIndex];
 
-        // Mangle the names of the current effect's varyings and record the results.
         NSDictionary *varyingReplacements = [CCEffectStack varyingsByApplyingPrefix:effectPrefix toVaryings:effect.varyingVars];
         [allVaryings addObjectsFromArray:varyingReplacements.allValues];
-
-        // Mangle the names of the current effect's fragment uniforms and record the results.
+        
         NSArray *fragmentUniforms = [CCEffectStack uniformsByRemovingUniformsFrom:effect.fragmentUniforms withNamesListedInSet:[CCEffect defaultEffectFragmentUniformNames]];
         NSDictionary *fragUniformReplacements = [CCEffectStack uniformsByApplyingPrefix:effectPrefix toUniforms:fragmentUniforms];
         [allFragUniforms addObjectsFromArray:fragUniformReplacements.allValues];
-
-        // Mangle the names of the current effect's fragment functions.
+        
         for(CCEffectFunction *function in effect.fragmentFunctions)
         {
             CCEffectFunction *prefixedFunction = [CCEffectStack effectFunctionByApplyingPrefix:effectPrefix uniformReplacements:fragUniformReplacements varyingReplacements:varyingReplacements toEffectFunction:function];
             [allFragFunctions addObject:prefixedFunction];
         }
-        
-        // Mangle the names of the current effect's vertex uniforms and record the results.
+
         NSArray *vertexUniforms = [CCEffectStack uniformsByRemovingUniformsFrom:effect.vertexUniforms withNamesListedInSet:[CCEffect defaultEffectVertexUniformNames]];
         NSDictionary *vtxUniformReplacements = [CCEffectStack uniformsByApplyingPrefix:effectPrefix toUniforms:vertexUniforms];
         [allVertexUniforms addObjectsFromArray:vtxUniformReplacements.allValues];
         
-        // Mangle the names of the current effect's vertex functions.
         for(CCEffectFunction* function in effect.vertexFunctions)
         {
             CCEffectFunction *prefixedFunction = [CCEffectStack effectFunctionByApplyingPrefix:effectPrefix uniformReplacements:vtxUniformReplacements varyingReplacements:varyingReplacements toEffectFunction:function];
             [allVertexFunctions addObject:prefixedFunction];
         }
         
-        // Update the original effect's translation table so it reflects the new mangled
-        // uniform names.
         effect.uniformTranslationTable = [[NSMutableDictionary alloc] init];
         for (NSString *key in vtxUniformReplacements)
         {
@@ -268,9 +268,7 @@
         effectIndex++;
     }
     
-    // Build a new effect that is the accumulation of all the mangled fragment and vertex functions.
-    BOOL firstInStack = (startIndex == 0) ? YES : NO;
-    CCEffect* stitchedEffect = [[CCEffect alloc] initWithFragmentFunction:allFragFunctions vertexFunctions:allVertexFunctions fragmentUniforms:allFragUniforms vertexUniforms:allVertexUniforms varyings:allVaryings firstInStack:firstInStack];
+    CCEffect* stitchedEffect = [[CCEffect alloc] initWithFragmentFunction:allFragFunctions vertexFunctions:allVertexFunctions fragmentUniforms:allFragUniforms vertexUniforms:allVertexUniforms varyings:allVaryings];
     stitchedEffect.debugName = @"CCEffectStack_Stitched";
     
     // Set the stitch flags of the resulting effect based on the flags of the first
@@ -281,18 +279,25 @@
     CCEffect *lastEffect = [effects lastObject];
     stitchedEffect.stitchFlags = (firstEffect.stitchFlags & CCEffectFunctionStitchBefore) | (lastEffect.stitchFlags & CCEffectFunctionStitchAfter);
     
-    // Create a new render pass object and set its shader from the stitched effect
-    // that was created above.
+    // Copy the shader for this new pass from the stitched effect.
     CCEffectRenderPass *newPass = [[CCEffectRenderPass alloc] init];
     newPass.debugLabel = @"CCEffectStack_Stitched pass 0";
     newPass.shader = stitchedEffect.shader;
+    newPass.shaderUniforms = [[NSMutableDictionary alloc] init];
     
     NSMutableArray *beginBlocks = [[NSMutableArray alloc] init];
     NSMutableArray *endBlocks = [[NSMutableArray alloc] init];
     
     for (CCEffect *effect in effects)
     {
-        // Copy the begin and end blocks from the input passes into the new pass.
+        // Copy the shader uniforms from each input effect to a shared
+        // dictionary for the new pass. For example, if we stitch two effects
+        // together, one with uniforms A and B and one with uniforms C and D,
+        // we will get one dictionary with A, B, C, and D.
+        //
+        // Similarly, copy the begin and end blocks from the input passes into
+        // the new pass.
+        [newPass.shaderUniforms addEntriesFromDictionary:effect.shaderUniforms];
         for (CCEffectRenderPass *pass in effect.renderPasses)
         {
             [beginBlocks addObjectsFromArray:pass.beginBlocks];

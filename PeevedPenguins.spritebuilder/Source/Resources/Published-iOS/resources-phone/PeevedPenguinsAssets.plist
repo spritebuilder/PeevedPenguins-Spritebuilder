@@ -72,13 +72,13 @@
 		<key>PeevedPenguinsAssets/catapult.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{387, 450}, {215, 79}}</string>
+			<string>{{387, 450}, {215, 92}}</string>
 			<key>offset</key>
-			<string>{0, -6}</string>
+			<string>{0, 0}</string>
 			<key>rotated</key>
 			<true/>
 			<key>sourceColorRect</key>
-			<string>{{0, 13}, {215, 79}}</string>
+			<string>{{0, 0}, {215, 92}}</string>
 			<key>sourceSize</key>
 			<string>{215, 92}</string>
 		</dict>

@@ -171,10 +171,6 @@ static NSInteger ccbAnimationManagerID = 0;
 - (CCActionInterval*)actionFromKeyframe0:(CCBKeyframe*)kf0 andKeyframe1:(CCBKeyframe*)kf1 propertyName:(NSString*)name node:(CCNode*)node {
     float duration = kf1.time - kf0.time;
     
-    if(kf0.easingType==kCCBKeyframeEasingInstant) {
-        duration = 0;
-    }
-    
     if ([name isEqualToString:@"rotation"]) {
         return [CCActionRotateTo actionWithDuration:duration angle:[kf1.value floatValue] simple:YES];
     } else if ([name isEqualToString:@"position"]) {
@@ -211,12 +207,12 @@ static NSInteger ccbAnimationManagerID = 0;
         return [CCActionTintTo actionWithDuration:duration color:color];
     } else if ([name isEqualToString:@"visible"]) {
         if ([kf1.value boolValue]) {
-            return [CCActionShow action];
+            return [CCActionSequence actionOne:[CCActionDelay actionWithDuration:duration] two:[CCActionShow action]];
         } else {
-            return [CCActionHide action];
+            return [CCActionSequence actionOne:[CCActionDelay actionWithDuration:duration] two:[CCActionHide action]];
         }
     } else if ([name isEqualToString:@"spriteFrame"]) {
-        return [CCActionSpriteFrame actionWithSpriteFrame:kf1.value];
+        return [CCActionSequence actionOne:[CCActionDelay actionWithDuration:duration] two:[CCActionSpriteFrame actionWithSpriteFrame:kf1.value]];
     } else {
         CCLOG(@"CCBReader: Failed to create animation for property: %@", name);
     }
@@ -243,9 +239,9 @@ static NSInteger ccbAnimationManagerID = 0;
             // Get relative position
             float x = [[value objectAtIndex:0] floatValue];
             float y = [[value objectAtIndex:1] floatValue];
-#ifdef __CC_PLATFORM_IOS
+#if __CC_PLATFORM_IOS
             [node setValue:[NSValue valueWithCGPoint:ccp(x,y)] forKey:name];
-#elif defined (__CC_PLATFORM_MAC)
+#elif __CC_PLATFORM_MAC
             [node setValue:[NSValue valueWithPoint:ccp(x,y)] forKey:name];
 #endif
         } else if ([name isEqualToString:@"scale"]) {
@@ -360,7 +356,7 @@ static NSInteger ccbAnimationManagerID = 0;
     if(numKeyframes<1) return;
     
     // Action Sequence Builder
-    NSMutableArray* actions = [NSMutableArray array];
+        NSMutableArray* actions = [NSMutableArray array];
     int endFrame            = startFrame+1;
             
     if(endFrame==numKeyframes || endFrame<0)
@@ -859,13 +855,14 @@ static NSInteger ccbAnimationManagerID = 0;
         
         CCActionInterval* action = [self actionFromKeyframe0:startKF andKeyframe1:endKF propertyName:seqProp.name node:node];
         
+        // Create delay to fix instant easing on non instant actions
+        if(startKF.easingType==kCCBKeyframeEasingInstant &&
+           ![seqProp.name isEqualToString:@"spriteFrame"] &&
+           ![seqProp.name isEqualToString:@"visible"]) {
+            [actions addObject:[CCActionDelay actionWithDuration:action.duration]];
+        }
+        
         if (action) {
-            
-            // Instant
-            if(startKF.easingType==kCCBKeyframeEasingInstant) {
-                [actions addObject:[CCActionDelay actionWithDuration:endKF.time-startKF.time]];
-            }
-            
             // Apply Easing
             action = [self easeAction:action easingType:startKF.easingType easingOpt:startKF.easingOpt];
             [actions addObject:action];

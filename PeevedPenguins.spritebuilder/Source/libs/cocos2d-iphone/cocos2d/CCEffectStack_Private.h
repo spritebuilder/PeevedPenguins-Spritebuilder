@@ -12,8 +12,8 @@
 
 @interface CCEffectStack () <CCEffectStackProtocol>
 
-@property (nonatomic, assign) BOOL passesDirty;
-@property (nonatomic, assign) BOOL stitchingEnabled;
-@property (nonatomic, strong) NSMutableArray *effects;
+@property (nonatomic) BOOL passesDirty;
+@property (nonatomic) BOOL stitchingEnabled;
+@property (nonatomic) NSMutableArray *effects;
 
 @end

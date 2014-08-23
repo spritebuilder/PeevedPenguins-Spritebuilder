@@ -55,7 +55,6 @@ double machGetClockDiffS()
 
 -(void)testReaderPerformance
 {
-    /*
     NSString *filePath =[[NSBundle mainBundle] pathsForResourcesOfType:@"ccbi" inDirectory:@"Resources-shared/Tests"][0];
     XCTAssertNotNil(filePath);
     
@@ -70,7 +69,6 @@ double machGetClockDiffS()
     }
 
     NSLog(@"TimeToRun: %0.8f", machGetClockDiffS());
-     */
 }
 
 - (void)tearDown

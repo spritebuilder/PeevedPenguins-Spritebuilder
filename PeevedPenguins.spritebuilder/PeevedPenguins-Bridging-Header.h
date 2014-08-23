@@ -10,3 +10,5 @@
 #import "CCNode.h"
 #import "CCPhysics+ObjectiveChipmunk.h"
 #import "ObjectiveChipmunk/ObjectiveChipmunk.h"
+#import "CCTouch.h"
+#import "CCTouchEvent.h"

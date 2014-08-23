@@ -86,7 +86,7 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
 }
 
   
-  override func touchBegan(touch: UITouch, withEvent event: UIEvent) {
+  override func touchBegan(touch: CCTouch, withEvent event: CCTouchEvent) {
     let touchLocation: CGPoint = touch.locationInNode(_contentNode)
 
     // start catapult dragging when a touch inside of the catapult arm occurs
@@ -121,18 +121,18 @@ class Gameplay: CCNode, CCPhysicsCollisionDelegate {
     }
   }
 
-  override func touchMoved(touch: UITouch, withEvent event: UIEvent) {
+  override func touchMoved(touch: CCTouch, withEvent event: CCTouchEvent) {
     // whenever touches move, update the position of the mouseJointNode to the touch position
     let touchLocation: CGPoint = touch.locationInNode(_contentNode)
     _mouseJointNode!.position = touchLocation
 }
 
-  override func touchEnded(touch: UITouch, withEvent event: UIEvent) {
+  override func touchEnded(touch: CCTouch, withEvent event: CCTouchEvent) {
     // when touches end, release the catapult
     self.releaseCatapult()
   }
 
-  override func touchCancelled(touch: UITouch, withEvent event: UIEvent) {
+  override func touchCancelled(touch: CCTouch, withEvent event: CCTouchEvent) {
     // when touches are cancelled, release the catapult
     self.releaseCatapult()
   }
